@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>実験完了 / Experiment Completed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 100px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 { color: #333; }
+        .code-box {
+            font-size: 48px;
+            font-weight: bold;
+            color: #d9534f;
+            background: #f9f9f9;
+            padding: 20px;
+            border: 2px dashed #d9534f;
+            margin: 20px 0;
+            letter-spacing: 2px;
+        }
+        p { color: #666; font-size: 16px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>実験が完了しました</h1>
+    <p>データの保存が正常に完了しました。ご協力ありがとうございました。<br>
+       下記の完了コードをコピーして、Yahoo! クラウドソーシングの画面に入力してください。</p>
+    
+    <div class="code-box" id="display-code">--------</div>
+    
+    <p>※ コードをコピーした後は、このタブを閉じていただいて構いません。</p>
+</div>
+
+<script>
+    function getCodeFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('code') || 'ERROR';
+    }
+    document.getElementById('display-code').innerText = getCodeFromURL();
+</script>
+
+</body>
+</html>
